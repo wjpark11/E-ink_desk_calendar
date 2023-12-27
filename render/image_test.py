@@ -17,8 +17,9 @@ draw.point(
     fill=0,
 )
 
-calendar_year = 2015
-calendar_month = 4
+calendar_year = 2023
+calendar_month = 12
+today = date.today()
 
 year_of_next_month = calendar_year if calendar_month < 12 else calendar_year + 1
 next_month = calendar_month + 1 if calendar_month < 12 else 1
@@ -29,7 +30,7 @@ prev_month = calendar_month - 1 if calendar_month > 1 else 12
 mini_cal_font = ImageFont.truetype("./font/D2Coding.ttf", 8)
 calendar_day_font = ImageFont.truetype("./font/D2Coding.ttf", 14)
 
-month_calendar = calendar.Calendar().monthdayscalendar(calendar_year, calendar_month)
+month_calendar = calendar.Calendar().monthdatescalendar(calendar_year, calendar_month)
 calendar_width = 530
 calendar_height = 390
 calendar_line_num = len(month_calendar)
@@ -116,15 +117,41 @@ for i in range(0, calendar_width - weeknum_cell_width, calendar_cell_width):
 
 # calendar cell horizontal lines
 for i in range(0, calendar_height - weekname_cell_height, calendar_cell_height):
-    draw.line((0, 90 + 30 + i, 530, 90 + 30 + i), fill=0, width=1)
+    draw.line(
+        (
+            calendar_position_x,
+            calendar_position_y + weekname_cell_height + i,
+            calendar_position_x + calendar_width,
+            calendar_position_y + weekname_cell_height + i,
+        ),
+        fill=0,
+        width=1,
+    )
 
 # calendar cell date
 for i in range(calendar_line_num):
     for j in range(7):
         if month_calendar[i][j] != 0:
+            if month_calendar[i][j] == today:
+                draw.rectangle(
+                    (
+                        cell_date_positions[i][j][0] - calendar_cell_padding,
+                        cell_date_positions[i][j][1] - calendar_cell_padding,
+                        cell_date_positions[i][j][0]
+                        + calendar_cell_width
+                        - calendar_cell_padding,
+                        cell_date_positions[i][j][1]
+                        + calendar_cell_height
+                        - calendar_cell_padding,
+                    ),
+                    fill=1,
+                    outline=0,
+                    width=3,
+                )
+
             draw.text(
                 cell_date_positions[i][j],
-                str(month_calendar[i][j]),
+                str(month_calendar[i][j].day),
                 font=calendar_day_font,
                 fill=0,
             )
