@@ -9,7 +9,7 @@ import traceback
 logging.basicConfig(level=logging.DEBUG)
 
 try:
-    logging.info("epd7in5_V2 Demo")
+    logging.info("epd7in5_V2 calendar test")
     epd = epd7in5_V2.EPD()
     
     logging.info("init and Clear")
