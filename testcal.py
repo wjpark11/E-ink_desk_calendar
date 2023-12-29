@@ -1,7 +1,7 @@
 import sys
 import os
 import logging
-import epd7in5_V2
+from epdlib import epd7in5_V2
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
