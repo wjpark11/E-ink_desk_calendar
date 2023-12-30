@@ -27,7 +27,8 @@ def make_calendar(year: int, month: int) -> Image:
     year_of_prev_month = year if month > 1 else year - 1
     prev_month = month - 1 if month > 1 else 12
 
-    font_path  = Path(".") / "font" / "D2Coding.ttf"
+    font_path  = Path(__file__).parent / "font" / "D2Coding.ttf"
+    print(font_path)
     mini_cal_font = ImageFont.truetype(font_path.name, 8)
     calendar_day_font = ImageFont.truetype(font_path.name, 14)
 
@@ -159,3 +160,7 @@ def make_calendar(year: int, month: int) -> Image:
 
 
     return base_img
+
+
+if __name__ == "__main__":
+    print(make_calendar(2023, 12))
