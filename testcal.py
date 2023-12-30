@@ -19,8 +19,8 @@ try:
     epd.Clear()
 
     logging.info("read testcal file")
-    image_test.make_calendar(2023, 12).save("test_cal.png")
-    Himage = Image.open("test_cal.png")
+    img = image_test.make_calendar(2023, 12)
+    Himage = Image.open(img)
     epd.display(epd.getbuffer(Himage))
     time.sleep(2)
 
