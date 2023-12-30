@@ -28,8 +28,8 @@ def make_calendar(year: int, month: int) -> Image:
     prev_month = month - 1 if month > 1 else 12
 
     cur_path = Path(__file__).parent
-    mini_cal_font = ImageFont.truetype(cur_path / "font/D2Coding.ttf", 8)
-    calendar_day_font = ImageFont.truetype(cur_path / "font/D2Coding.ttf", 14)
+    mini_cal_font = ImageFont.truetype(cur_path / "font"/"D2Coding.ttf", 8)
+    calendar_day_font = ImageFont.truetype(cur_path / "font"/"D2Coding.ttf", 14)
 
     month_calendar = calendar.Calendar().monthdatescalendar(year, month)
     calendar_width = 530
