@@ -10,6 +10,7 @@ from render import image_test
 
 logging.basicConfig(level=logging.DEBUG)
 
+image_test.make_calendar(2023, 12).save("test_cal.png")
 try:
     logging.info("epd7in5_V2 calendar test")
     epd = epd7in5_V2.EPD()
@@ -19,8 +20,7 @@ try:
     epd.Clear()
 
     logging.info("read testcal file")
-    img = image_test.make_calendar(2023, 12)
-    Himage = Image.open(img)
+    Himage = Image.open("test_cal.png")
     epd.display(epd.getbuffer(Himage))
     time.sleep(2)
 
