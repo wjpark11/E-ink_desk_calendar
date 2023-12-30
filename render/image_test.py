@@ -5,6 +5,8 @@ from PIL import Image, ImageDraw, ImageFont
 DISPLAY_WIDTH = 800
 DISPLAY_HEIGHT = 480
 TICK = 10
+mini_cal_font = ImageFont.truetype("D2Coding.ttf", 8)
+calendar_day_font = ImageFont.truetype("D2Coding.ttf", 14)
 
 def make_calendar(year: int, month: int) -> Image:
     base_img = Image.new("1", (DISPLAY_WIDTH, DISPLAY_HEIGHT), color=1)
@@ -26,8 +28,6 @@ def make_calendar(year: int, month: int) -> Image:
     year_of_prev_month = year if month > 1 else year - 1
     prev_month = month - 1 if month > 1 else 12
 
-    mini_cal_font = ImageFont.truetype("D2Coding.ttf", 8)
-    calendar_day_font = ImageFont.truetype("D2Coding.ttf", 14)
 
     month_calendar = calendar.Calendar().monthdatescalendar(year, month)
     calendar_width = 530
