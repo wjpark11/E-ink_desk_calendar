@@ -156,4 +156,4 @@ def make_calendar(year: int, month: int) -> Image:
                 )
 
 
-    base_img.show()
+    return base_img
