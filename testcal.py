@@ -6,6 +6,8 @@ import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
+from render import image_test
+
 logging.basicConfig(level=logging.DEBUG)
 
 try:
@@ -17,6 +19,7 @@ try:
     epd.Clear()
 
     logging.info("read testcal file")
+    image_test.make_calendar(2023, 12).save("test_cal.png")
     Himage = Image.open("test_cal.png")
     epd.display(epd.getbuffer(Himage))
     time.sleep(2)
