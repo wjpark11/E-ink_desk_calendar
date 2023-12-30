@@ -29,7 +29,7 @@ def make_calendar(year: int, month: int) -> Image:
     mini_cal_font = ImageFont.truetype("./font/D2Coding.ttf", 8)
     calendar_day_font = ImageFont.truetype("./font/D2Coding.ttf", 14)
 
-    month_calendar = calendar.Calendar().monthdatescalendar(year, calendar_month)
+    month_calendar = calendar.Calendar().monthdatescalendar(year, month)
     calendar_width = 530
     calendar_height = 390
     calendar_line_num = len(month_calendar)
