@@ -10,7 +10,10 @@ from render import image_test
 
 logging.basicConfig(level=logging.DEBUG)
 
-image_test.make_calendar(2023, 12).save("test_cal.png")
+cal_year = int(sys.argv[1])
+cal_month = int(sys.argv[2])
+
+image_test.make_calendar(cal_year, cal_month).save("test_cal.png")
 try:
     logging.info("epd7in5_V2 calendar test")
     epd = epd7in5_V2.EPD()
